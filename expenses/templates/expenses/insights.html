@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Insights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .insights {
+            list-style: none;
+            padding: 0;
+        }
+        .insight {
+            background: #f8f9fa;
+            margin: 15px 0;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+        .insight-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #34495e;
+            margin: 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        .loading {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💡 Your Spending Insights</h1>
+        
+        {% if insights %}
+            <ul class="insights">
+                {% for insight in insights %}
+                <li class="insight">
+                    <p class="insight-text">{{ insight }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="loading">No insights available at the moment. Please try again later.</p>
+        {% endif %}
+        
+        <a href="{% url 'expense_list' %}" class="back-link">← Back to Expenses</a>
+    </div>
+</body>
+</html>
