@@ -87,22 +87,6 @@ A Django web application for tracking personal expenses with AI-powered insights
 3. **View Insights**: Visit `/expenses/insights/` for AI-powered analysis
 4. **Track Progress**: Monitor your spending patterns over time
 
-## 🗂️ Project Structure
-
-```
-expense-tracker/
-├── config/                 # Django project settings
-├── expenses/              # Main expenses app
-│   ├── models.py         # Database models
-│   ├── views.py          # View logic
-│   ├── gemini_insights.py # AI integration
-│   └── templates/        # HTML templates
-├── users/                # User authentication app
-├── templates/            # Shared templates
-├── static/              # CSS, JS, images
-├── requirements.txt     # Python dependencies
-├── .env                # Environment variables (create this)
-└── manage.py           # Django management script
 ```
 
 ## 🤝 Contributing
