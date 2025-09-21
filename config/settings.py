@@ -128,5 +128,18 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/expenses/'   # where to go after login
 LOGOUT_REDIRECT_URL = '/users/login/'  # optional, after logout
 
-if 'RAILWAY_ENVIRONMENT' in os.environ:
-    from .production_settings import *
+if os.environ.get('RAILWAY_ENVIRONMENT'):
+    DEBUG = False
+    
+    ALLOWED_HOSTS = [
+        '.railway.app',
+        '.up.railway.app', 
+        'localhost',
+        '127.0.0.1'
+    ]
+    
+    # Add whitenoise for static files
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+    
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
